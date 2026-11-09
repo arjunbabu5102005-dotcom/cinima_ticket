@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBook - Movie Ticket Booking</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #1c1c1c;
+        }
+
+        nav h2 {
+            color: #ff3838;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff3838;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 75px 20px;
+            background: linear-gradient(120deg, #360000, #111);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            padding: 12px 30px;
+            background: #ff3838;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Movies */
+        .movies {
+            padding: 40px 8%;
+        }
+
+        .movies h2 {
+            margin-bottom: 25px;
+        }
+
+        .movie-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .movie-card {
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            padding-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .poster {
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 65px;
+        }
+
+        .poster1 { background: linear-gradient(135deg, #450000, #c0392b); }
+        .poster2 { background: linear-gradient(135deg, #001d38, #2980b9); }
+        .poster3 { background: linear-gradient(135deg, #342000, #d68910); }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .movie-info p {
+            color: #bbb;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .showtimes {
+            margin: 12px 0;
+        }
+
+        .showtimes span {
+            display: inline-block;
+            background: #444;
+            padding: 7px;
+            margin: 3px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .book-btn {
+            width: 100%;
+            padding: 10px;
+            background: #ff3838;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background: #d63031;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1c1c1c;
+            color: #aaa;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>🎬 CineBook</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Book Your Movie Tickets</h1>
+        <p>Enjoy your favourite movies on the big screen.</p>
+        <button onclick="document.getElementById('movies').scrollIntoView()">
+            Explore Movies
+        </button>
+    </section>
+
+    <!-- Movie Section -->
+    <section class="movies" id="movies">
+
+        <h2>Now Showing</h2>
+
+        <div class="movie-container">
+
+            <!-- Movie 1 -->
+            <div class="movie-card">
+                <div class="poster poster1">🎭</div>
+
+                <div class="movie-info">
+                    <h3>Action Hero</h3>
+                    <p>Action | 2h 30m</p>
+                    <p>Language: Malayalam</p>
+
+                    <div class="showtimes">
+                        <span>10:00 AM</span>
+                        <span>2:00 PM</span>
+                        <span>6:00 PM</span>
+                    </div>
+
+                    <button class="book-btn"
+                        onclick="bookTicket('Action Hero')">
+                        Book Ticket
+                    </button>
+                </div>
+            </div>
+
+            <!-- Movie 2 -->
+            <div class="movie-card">
+                <div class="poster poster2">🚀</div>
+
+                <div class="movie-info">
+                    <h3>Space Adventure</h3>
+                    <p>Sci-Fi | 2h 15m</p>
+                    <p>Language: English</p>
+
+                    <div class="showtimes">
+                        <span>11:00 AM</span>
+                        <span>3:00 PM</span>
+                        <span>7:00 PM</span>
+                    </div>
+
+                    <button class="book-btn"
+                        onclick="bookTicket('Space Adventure')">
+                        Book Ticket
+                    </button>
+                </div>
+            </div>
+
+            <!-- Movie 3 -->
+            <div class="movie-card">
+                <div class="poster poster3">❤️</div>
+
+                <div class="movie-info">
+                    <h3>Love Story</h3>
+                    <p>Romance | 2h 00m</p>
+                    <p>Language: Tamil</p>
+
+                    <div class="showtimes">
+                        <span>9:00 AM</span>
+                        <span>1:00 PM</span>
+                        <span>5:00 PM</span>
+                    </div>
+
+                    <button class="book-btn"
+                        onclick="bookTicket('Love Story')">
+                        Book Ticket
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 CineBook. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function bookTicket(movie) {
+            alert("You selected: " + movie);
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>
